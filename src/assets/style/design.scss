@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap');
+
+//font
+$en : 'Quicksand', sans-serif;
+
+//color
+$brown-1 : #cfb7a3d9;
+$brown-2 : #ba987ade;
+// cfb7a3
+//extend
+.center{text-align: center;}
+.right{text-align: right;}
+.vertical{align-self: center;}
+%setPage{width: 50%; margin: 70px auto; font-family: $en;}
+%secHeader{
+    img{width: 25px; vertical-align: middle; margin-right: 5px;}
+    h4{display: inline; vertical-align: middle; font-weight: 400;}
+}
+
+//style
+body{margin: 0;}
+#navbar{
+    font-family: $en;
+    padding: 45px 0 25px 0;
+    background: $brown-1;
+    h1{
+        font-weight: 300;
+        color: #996534;
+        font-size: 70px;
+        margin: 0;
+    }
+    h3{
+        font-weight: 500;
+        color: #fff;
+        margin: 0;
+    }
+    h6{
+        color: #fff; 
+        font-weight: 400;
+        margin: 0;
+        padding-top: 5px;
+    }
+    hr{width: 17%; border: 1px solid #fff; border-radius: 10px;}
+    .menuLink{display: inline-block;}
+    img{width: 25px;}
+    a{
+        display: inline-block;
+        margin: 0 20px;
+        padding: 7px;
+        +h6{visibility: hidden;}
+        &:hover{
+            background: $brown-2;
+            border-radius: 50%;
+            +h6{visibility: visible;}
+        }
+        &.router-link-exact-active.router-link-active{
+            background: $brown-2;
+            border-radius: 50%;
+        }
+    }
+}
+
+#portfolio{
+    @extend %setPage;
+    width: 60%;
+    img{width: 100%;}
+    button{
+        align-self: center;
+        font-weight: 300;
+        font-size: 25px;
+        &:focus{outline: 0;}
+    }
+    .modal-header{padding: 15px 50px;}
+    .modal-body{padding: 60px 50px 100px 50px;}
+    .col-xl-4{padding: 15px;}
+    .video-responsive{
+        overflow:hidden;
+        padding-bottom:56.25%;
+        position:relative;
+        height:0;
+    }
+    .video-responsive iframe{
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        position:absolute;
+    }
+    h4{font-weight: 400;}
+    h5{font-weight: 300;}
+    .seeMore{
+        .bg{display: none;}
+        &:hover{
+            .bg{
+                display: block;
+                background: #00000085;
+                position: absolute;
+                left: 0; right: 0; top: 0; bottom: 0;
+                margin: 15px;
+                cursor: pointer;
+                img{
+                    width: 30px;
+                    position: absolute;
+                    left: 0; right: 0; top: 0; bottom: 0;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}
+
+#profile{
+    @extend %setPage;
+    hr{
+        width: 35%; 
+        border: 1px solid $brown-2; 
+        border-radius: 10px;
+        margin: 70px auto 50px auto;
+    }
+    .section1{
+        img{width: 250px; border-radius: 50%;}
+        h4{font-weight: 400;}
+        h6{font-weight: 300;}
+        .smile{width: 13px;}
+    }
+    .section2{
+        @extend %secHeader;
+        h5{margin: 20px 0; font-weight: 300;}
+        span{font-weight: 400;}
+        .sec1, .sec2{
+            border-left: 2px solid $brown-1;
+            padding-left: 20px;
+        }
+    }
+    .section3{
+        @extend %secHeader;
+        h5{
+            margin-bottom: 5px; font-weight: 300;
+            &.bold{font-weight: 400;}
+        }
+        .sec1, .sec2{
+            border-left: 2px solid $brown-1;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+    }
+    .section4{
+        @extend %secHeader;
+        h5{
+            margin-bottom: 5px; font-weight: 300;
+            &.bold{font-weight: 400;}
+        }
+        .margin{margin-top: 20px;}
+    }
+    
+}
+
+#contact{
+    @extend %setPage;
+    h5{display: inline; vertical-align: middle; font-weight: 300;}
+    img{width: 20px; vertical-align: middle; margin-right: 10px;}
+    .sec1, .sec2, .sec3, .sec4, .sec5{
+        margin-top: 20px;
+    }
+    a{color: #000;}
+    hr{
+        width: 35%; 
+        border: 1px solid $brown-2; 
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    #navbar{
+        h1{font-size: 2.5rem;}
+        h6{display: none;}
+    }
+    #portfolio{
+        .modal-dialog, .modal-content{
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+            padding: 0;
+            margin: 0;
+            border: none;
+            border-radius: 0;
+        }
+        .modal-header{padding: 15px 20px;}
+        .modal-body{padding: 30px 20px;}
+        .space{margin-bottom: 20px;}
+    }
+    #profile, #contact{width: 80%;}
+    #profile{
+        .space{margin-top: 20px;}
+    }
+    
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px){
+    #navbar{
+        h6{display: none;}
+    }
+    #portfolio{
+        .modal-header{padding: 15px 20px;}
+        .modal-body{padding: 30px 20px;}
+        .space{margin-bottom: 20px;}
+    }
+    #profile, #contact{width: 65%;}
+    #profile{
+        .space{margin-top: 20px;}
+    }
+}
